@@ -1,0 +1,40 @@
+<div class="col m12">
+
+    <div class="row">
+        <form class="col s12" [formGroup]="listForm">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">dialpad</i>
+                    <input id="icon_prefix" type="text" formControlName="photoQuantity">
+                    <label for="icon_prefix">Quantity</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="checkbox" class="filled-in" id="filled-in-box" formControlName="isInfinityScroll"/>
+                    <label for="filled-in-box">Infinity scroll</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <h4 style="font-family: Verdana">
+        Photos quantity <a>{{photos.length}}</a>
+    </h4>
+
+    <div class="row images-container">
+        <div class="card col l4 m6 s12"  *ngFor="let photo of photos;let i=index">
+            <div class="card-image">
+                <img [attr.src]="photo.imgUrl" width="300px" height="250px">
+                <span class="card-title">
+                    {{photo.title}}
+                </span>
+            </div>
+            <div class="card-action">
+                <a>{{photo.description}}</a>
+                <a style="cursor: pointer;margin-left: 25%;margin-top: 5%" (click)="removePhoto(i)">
+                    <i class="material-icons">delete</i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
